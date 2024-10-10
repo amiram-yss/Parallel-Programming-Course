@@ -1,0 +1,11 @@
+prog: main.o hamming.o b64.o
+	gcc -g -o prog main.o hamming.o b64.o
+
+main.o: main.c libstr.h
+	gcc -g -c -o main.o main.c
+
+hamming.o: hamming.s
+	as -g -o hamming.o hamming.s
+
+b64.o: b64.c libstr.h
+	gcc -g -c -o b64.o b64.c
